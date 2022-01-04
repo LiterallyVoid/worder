@@ -9,6 +9,7 @@ class LetterView {
     setLetter(l) {
         this.element.textContent = l;
         this.content = l.toLowerCase();
+        this.setStyle('full');
     }
 
     setStyle(s) {
@@ -37,7 +38,6 @@ class GuessView {
     addLetter(l) {
         if (this.idx < 5) {
             this.letters[this.idx].setLetter(l);
-            this.letters[this.idx].setStyle('letter');
             this.idx++;
         }
     }
@@ -78,12 +78,7 @@ class GuessView {
         }
 
         for (let i = 0; i < 5; i++) {
-            setTimeout(() => {
-                setTimeout(() => {
-                    this.letters[i].setStyle(styles[i]);
-                }, 200);
-                this.letters[i].setStyle('flip');
-            }, 300 * i);
+            this.letters[i].setStyle(styles[i]);
         }
     }
 }

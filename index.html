@@ -17,7 +17,11 @@
           justify-content: center;
           text-align: center;
 
-          transition: transform 0.2s ease;
+          transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .l.full {
+          box-shadow: 0 0 0 2px inset #888;
       }
 
       .l.right {
@@ -36,10 +40,6 @@
           background-color: #ba5;
           color: #FFF;
           box-shadow: none;
-      }
-
-      .l.flip {
-          transform: scale(0, 0.9);
       }
 
       .g {
