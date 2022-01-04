@@ -67,8 +67,6 @@ class GuessView {
             }
         }
 
-        console.log(used);
-
         for (let i = 0; i < 5; i++) {
             if (correct[i]) continue;
 
@@ -80,7 +78,12 @@ class GuessView {
         }
 
         for (let i = 0; i < 5; i++) {
-            this.letters[i].setStyle(styles[i]);
+            setTimeout(() => {
+                setTimeout(() => {
+                    this.letters[i].setStyle(styles[i]);
+                }, 200);
+                this.letters[i].setStyle('flip');
+            }, 300 * i);
         }
     }
 }

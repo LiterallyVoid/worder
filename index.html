@@ -4,34 +4,42 @@
     <meta charset="utf-8">
     <style>
       .l {
+          font-family: sans;
           font-weight: 600;
-          outline: 2px solid #aaa;
           width: 2.2em;
           height: 2.2em;
-          margin: 0.2em;
+          margin: 0.1em;
+
+          box-shadow: 0 0 0 2px inset #ddd;
 
           display: flex;
           align-items: center;
           justify-content: center;
           text-align: center;
+
+          transition: transform 0.2s ease;
       }
 
       .l.right {
           background-color: #5a5;
           color: #FFF;
-          outline: none;
+          box-shadow: none;
       }
 
       .l.wrong {
           background-color: #888;
           color: #FFF;
-          outline: none;
+          box-shadow: none;
       }
 
       .l.half {
           background-color: #ba5;
           color: #FFF;
-          outline: none;
+          box-shadow: none;
+      }
+
+      .l.flip {
+          transform: scale(0, 0.9);
       }
 
       .g {
