@@ -85,10 +85,11 @@ class GuessView {
     }
 }
 
+let words;
 let word = null;
 
 async function amain() {
-    const words = (await fetch('words/list.txt').then(r => r.text()))
+    words = (await fetch('words/list.txt').then(r => r.text()))
           .split('\n')
           .map(word => word.trim())
           .filter(word => word.length == 5);
@@ -114,6 +115,12 @@ document.onkeydown = function(e) {
     } else if (key.length == 1 && /[a-z]/.test(key)) {
         guesses[guess_index].addLetter(key.toUpperCase());
     } else if (key == "enter" && guesses[guess_index].idx >= 5) {
+
+        if (words.indexOf(guesses[guess_index].letters.map(l => l.content).join('')) === -1) {
+            alert("That word isn't in the dictionary!");
+            return;
+        }
+
         guesses[guess_index].reveal();
         guess_index++;
 
